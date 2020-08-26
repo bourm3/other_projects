@@ -1,0 +1,27 @@
+<DOCTYPE html>
+<html>
+<title>Geographic Conversion Website</title>
+<head>
+<link href="../static/main.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<h1>Geographic Conversion Website </h1>
+<h3>Upload a file to convert to lat/long</h3>
+<div class="error"> {{ text_box | safe }} <div>
+
+<form action="{{url_for('success')}}" method='POST' enctype="multipart/form-data">
+<input type='file'  accept='.csv' name='file' <br>
+<p>
+<button type="submit">Upload</button>
+</form>
+<div class="output">
+<center>
+{% for table in tables %}
+            {{ table|safe }}
+{% endfor %}
+</div>
+</div>
+</body>
+</html>
+
